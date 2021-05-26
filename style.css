@@ -1,4 +1,26 @@
+h1 {
+    font-family: monospace;
+    text-align: center;
+    padding: 50px;
+}
+
 #container {
    display: grid;
+   width: 50%;
+   height: 50%;
+   margin: auto;
+   border: 10px solid #00010e;
+}
+
+.default-state{
+    background-color: white;
+}
+
+/* .default-state:hover {
+    background-color: red;
+} */
+
+.acitvated {
+background-color: blue;
 }
 
