@@ -7,10 +7,32 @@
 makeCanvas(32);
 addEventTriggerforCanvas(); 
 
+function newCanvas() {
+    let haveNumber = false;
+    let userInput = parseInt(prompt("How big should your next canvas be? \nPlease input a whole number \nNew canvas size will be number x number big \nFor performance reasons, please don't make it bigger than 64.", ''));
+    //control for new canvas size restrictions and reset canvas
+    while (haveNumber === false) {
+       if (Number.isInteger(userInput) && userInput <= 64) {
+           haveNumber = true;
+           resetCanvas(userInput);
+       } else { 
+           userInput = parseInt(prompt("You naughty child, you! \nYou either did not input a number or the number was too big. \nTry again!", ''));
+       }
+    };
+};
+
+function resetCanvas(size) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    makeCanvas(size);
+    addEventTriggerforCanvas(); 
+};
+
 function addEventTriggerforCanvas() {
     document.querySelectorAll('.default-state').forEach(item => {
         item.addEventListener('mouseover', event => {
-          event.target.classList.add('acitvated');
+          event.target.className = 'activated';
         })
       });
 };
