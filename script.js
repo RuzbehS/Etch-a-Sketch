@@ -1,9 +1,3 @@
-/* TO-DO:
-    add function that resets div elements to default state
-    add function that can change div elements grid size
-    function should be able to update DOM tree (add/remove) with needed div elements    
-*/
-
 makeCanvas(32);
 addEventTriggerforCanvas(); 
 
