@@ -20,21 +20,28 @@
 
 
 
-makeGridSystem(3); 
+makeGridSystem(64); 
+// setDivAttributes(2);
 
 function makeGridSystem(size) {
    const container = document.querySelector('#container');
    for (i = 1; i <= size; i++) {
-       let div = document.createElement('div');
-       div.setAttribute('id', `${'item' + i}`); 
-       container.appendChild(div);
-       let p = document.createElement('p');
-       div.appendChild(p);
-       
-   }
-   
-   function setDivAttributes(DivIdNumber) {
-    document.getElementById(`${'item' + DivIdNumber}`).style.backgroundColor = "yellow";
+       for (j = 1; j <= size; j++) {
+        let div = document.createElement('div');
+        div.setAttribute('id', `${'item' + i.toString() + j.toString()}`); 
+        container.appendChild(div);
+        setDivAttributes(i,j);
+        let p = document.createElement('p');
+        div.appendChild(p);
+
+       }
+    
+      
+      
    }
       
 };
+
+function setDivAttributes(DivIdRow,DivIdColumn) {
+    document.getElementById(`${'item' + DivIdRow.toString() + DivIdColumn.toString()}`).style.cssText = `grid-column: ${DivIdColumn} / ${DivIdColumn + 1}; grid-row: ${DivIdRow} / ${DivIdRow + 1}`;
+   }
